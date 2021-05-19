@@ -4,16 +4,22 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core'
 import MenuItem from '@material-ui/core/MenuItem'
 import { categories } from './../data/category'
 
-const darkTheme = createMuiTheme({
-	palette: {
-		type: 'dark',
-		primary: {
-			main: '#fff',
+export default function Header({
+	word,
+	setWord,
+	category,
+	setCategory,
+	darkMode,
+}) {
+	const darkTheme = createMuiTheme({
+		palette: {
+			type: darkMode ? 'dark' : 'light',
+			primary: {
+				main: darkMode ? '#000' : '#fff',
+			},
 		},
-	},
-})
+	})
 
-export default function Header({ word, setWord, category, setCategory }) {
 	const handleSelectChange = (language) => {
 		setCategory(language)
 	}

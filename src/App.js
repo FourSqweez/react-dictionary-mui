@@ -67,6 +67,7 @@ function App() {
 					setWord={setWord}
 					category={category}
 					setCategory={setCategory}
+					darkMode={darkMode}
 				/>
 
 				{meanings && (
