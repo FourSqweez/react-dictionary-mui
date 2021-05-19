@@ -27,6 +27,7 @@ function App() {
 	const [category, setCategory] = useState('en')
 	const [darkMode, setDarkMode] = useState(true)
 	const [apiError, setApiError] = useState(false)
+	const [isLoading, setIsLoading] = useState(true)
 
 	const fetchDictionary = async () => {
 		try {
@@ -35,13 +36,19 @@ function App() {
 			)
 			setApiError(false)
 			setMeanings(data)
+			setTimeout(() => {
+				setIsLoading(false)
+			}, 1000)
 			//console.log(data)
 		} catch (error) {
 			setApiError(true)
+			setIsLoading(false)
 		}
 	}
 
 	useEffect(() => {
+		setApiError(false)
+		setIsLoading(true)
 		fetchDictionary()
 	}, [word, category])
 
@@ -68,6 +75,7 @@ function App() {
 						category={category}
 						meanings={meanings}
 						apiError={apiError}
+						isLoading={isLoading}
 					/>
 				)}
 			</ContentContainer>

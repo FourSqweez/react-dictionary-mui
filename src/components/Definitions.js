@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 
-export default function Definitions({ word, category, meanings, apiError }) {
+export default function Definitions({
+	word,
+	category,
+	meanings,
+	apiError,
+	isLoading,
+}) {
 	return (
 		<MeaningsContainer>
 			<div>
@@ -18,6 +24,8 @@ export default function Definitions({ word, category, meanings, apiError }) {
 
 			{word === '' ? (
 				<Subtitle>Start by typing a word in Search</Subtitle>
+			) : isLoading ? (
+				<div>Loading...</div>
 			) : apiError ? (
 				<>
 					<h1>Sorry!! No Definitions Found</h1>
