@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export default function Definitions({ word, category, meanings, apiError }) {
 	return (
 		<MeaningsContainer>
-
 			<div>
 				{meanings[0] && word && category === 'en' && (
 					<Audio
@@ -16,7 +15,6 @@ export default function Definitions({ word, category, meanings, apiError }) {
 					</Audio>
 				)}
 			</div>
-
 
 			{word === '' ? (
 				<Subtitle>Start by typing a word in Search</Subtitle>

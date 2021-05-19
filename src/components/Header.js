@@ -16,13 +16,12 @@ const darkTheme = createMuiTheme({
 export default function Header({ word, setWord, category, setCategory }) {
 	const handleSelectChange = (language) => {
 		setCategory(language)
-		setWord('')
 	}
 	return (
 		<HeaderContainer>
 			<Title>{word ? word : 'Word Hunt'}</Title>
-			<ThemeProvider theme={darkTheme}>
-				<Inputs>
+			<Inputs>
+				<ThemeProvider theme={darkTheme}>
 					<SearchInput
 						id="standard-basic"
 						label="Search a Word"
@@ -41,8 +40,8 @@ export default function Header({ word, setWord, category, setCategory }) {
 							</MenuItem>
 						))}
 					</SelectInput>
-				</Inputs>
-			</ThemeProvider>
+				</ThemeProvider>
+			</Inputs>
 		</HeaderContainer>
 	)
 }
@@ -60,7 +59,9 @@ const Inputs = styled.div`
 `
 
 const SearchInput = styled(TextField)`
-	width: 43%;
+	&& {
+		width: 43%;
+	}
 `
 
 const SelectInput = styled(SearchInput)``
